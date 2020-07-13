@@ -6,8 +6,8 @@ use Zend\Http\Client\Adapter\Curl;
 use Zend\Http\Request;
 
 /**
- * Class Http
- * @package Vs\Weather\ApiClient\Client
+ * Class Client
+ * @package Vs\Weather\ApiClient
  */
 class Client extends \Zend\Http\Client implements ClientInterface
 {
