@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Weather Report</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="vs.weather.weather.index" template="Vs_Weather::weather_report.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Vs\Weather\ViewModel\WeatherReport</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

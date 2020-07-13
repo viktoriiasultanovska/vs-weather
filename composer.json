@@ -1,0 +1,15 @@
+{
+  "name": "vs/weather",
+  "require": {
+    "php": "~7.2.0"
+  },
+  "type": "magento2-module",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Vs\\Weather\\": ""
+    }
+  }
+}

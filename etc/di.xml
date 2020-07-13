@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Vs\Weather\Api\WeatherReportManagementInterface" type="Vs\Weather\Model\WeatherReportManagement"/>
+	<preference for="Vs\Weather\Api\Data\ReportSearchResultInterface" type="Vs\Weather\Model\ReportSearchResult"/>
+    <preference for="Vs\Weather\ApiClient\ClientInterface" type="Vs\Weather\ApiClient\Client"/>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="vs_weather_report_listing_data_source" xsi:type="string">Vs\Weather\Model\ResourceModel\Report\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

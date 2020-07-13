@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Vs_Weather::weather"
+             title="Weather"
+             module="Vs_Weather" sortOrder="10"
+             parent="Magento_Backend::content"
+             resource="Vs_Weather::weather_report"/>
+        <add id="Vs_Weather::weather_report"
+             title="Weather Report"
+             module="Vs_Weather" sortOrder="10"
+             action="vs_weather/report"
+             resource="Vs_Weather::weather_report"
+             parent="Vs_Weather::weather"
+        />
+    </menu>
+</config>

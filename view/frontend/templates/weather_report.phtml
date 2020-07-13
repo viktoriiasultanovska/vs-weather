@@ -1,0 +1,51 @@
+<?php
+
+use Magento\Framework\View\Element\Template;
+use Vs\Weather\Util\WeatherReportDataItemInterface;
+use Vs\Weather\ViewModel\WeatherReport;
+
+/** @var $viewModel WeatherReport */
+
+/** @var $block Template */
+$viewModel = $block->getViewModel();
+
+/* @var $item WeatherReportDataItemInterface */
+$item = $viewModel->getLatestWeatherReport();
+?>
+
+<?php if($item): ?>
+    <div class="container">
+        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 weather-widget"
+             id="weather-widget">
+            <h2 class="weather-widget__city-name" id="weather-widget-city-name">
+                <?php echo __('Weather in %1', $item->getCity()); ?>
+            </h2>
+            <h2 class="weather-widget__temperature" id="weather-widget-temperature">
+                <?php echo $item->getTemperature(); ?>
+            </h2>
+            <p class="weather-widget__date" id="weather-widget-date">
+                <?php echo __('Obtained at %1', $item->getObtainedAt()); ?>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    <tr>
+                        <th><?php echo __('Pressure'); ?></th>
+                        <td id="weather-widget-pressure">
+                            <?php echo $item->getPressure(); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><?php echo __('Humidity'); ?></th>
+                        <td id="weather-widget-humidity">
+                            <?php echo $item->getHumidity(); ?>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php else: ?>
+    <h3><?php echo __('Weather information is absent'); ?></h3>
+<?php endif; ?>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="vs_weather_reporting"  translate="label" type="text" sortOrder="1100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>OpenWeatherMap API</label>
+            <tab>service</tab>
+            <resource>Vs_Weather::weather_report</resource>
+            <group id="configuration" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Possible values: Yes, No</comment>
+                </field>
+                <field id="vs_service_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Weather API Service Url</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="vs_weather_reporting/configuration/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="token" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Token</label>
+                    <validate>required-entry</validate>
+                    <comment>Create token here https://home.openweathermap.org/api_keys.</comment>
+                    <depends>
+                        <field id="vs_weather_reporting/configuration/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="city" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>City</label>
+                    <source_model>Vs\Weather\Model\Config\Source\City</source_model>
+                    <depends>
+                        <field id="vs_weather_reporting/configuration/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="units" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Units</label>
+                    <source_model>Vs\Weather\Model\Config\Source\Units</source_model>
+                    <depends>
+                        <field id="vs_weather_reporting/configuration/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="check" translate="button_label" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label/>
+                    <button_label>Test Connection</button_label>
+                    <frontend_model>Vs\Weather\Block\Adminhtml\System\Config\TestConnection</frontend_model>
+                    <comment>Please save configuration before test connection</comment>
+                    <depends>
+                        <field id="vs_weather_reporting/configuration/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

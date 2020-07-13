@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var \Magento\Framework\View\TemplateEngine\Php $this
+ * @var \Vs\Weather\Block\Adminhtml\System\Config\TestConnection $block
+ */
+?>
+<button class="scalable" type="button" id="<?php echo $block->getHtmlId() ?>" data-mage-init='{"testConnection":{
+    "url": "<?php echo $block->getAjaxUrl() ?>",
+    "elementId": "<?php echo $block->getHtmlId() ?>",
+    "successText": "<?php echo __('Successful! Test again?') ?>",
+    "failedText": "<?php echo __('Connection failed! Test again?') ?>",
+    "fieldMapping": "<?php echo $block->getFieldMapping(); ?>"}, "validation": {}}'>
+    <span>
+        <span>
+            <span id="<?php echo $block->getHtmlId() ?>_result"><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+        </span>
+    </span>
+</button>

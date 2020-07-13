@@ -1,0 +1,15 @@
+{
+    "vs_weather_report": {
+        "column": {
+            "entity_id": true,
+            "city": true,
+            "temperature": true,
+            "pressure": true,
+            "humidity": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
